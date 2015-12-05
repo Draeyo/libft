@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 18:05:55 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/05 14:33:34 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/05 14:34:53 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	new_list = &new;
 	i = 0;
 	prev = lst;
-	while (list)
+	while (lst)
 	{
 		lst = lst->next;
 		prev->next = lst;
