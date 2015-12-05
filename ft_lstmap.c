@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 18:05:55 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/05 12:55:28 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/05 14:33:34 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		i++;
 	}
 	new = ft_lstnew(f(lst)->content, f(lst)->content_size);
-	while (i > 0)
+	lst = prev->next;
+	while (lst)
 	{
 		new = ft_lstnew(f(lst)->content, f(lst)->content_size);
 		ft_lstadd(new_list, new);
+		lst = prev->next;
 		i--;
 	}
 	return (*new_list);
