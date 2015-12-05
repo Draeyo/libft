@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 18:05:55 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/02 19:18:14 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/05 12:55:28 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,27 @@
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	t_list		*start;
-	t_list		*next;
-	t_list		*pouet;
+	t_list		*new;
+	t_list		**new_list;
+	int			i;
+	t_list		*prev;
 
-	pouet = lst;
-	if (lst)
+	new = NULL;
+	new_list = &new;
+	i = 0;
+	prev = lst;
+	while (list)
 	{
-		pouet = ft_lstnew(f(lst)->content, f(lst)->content_size);
-		start = pouet;
-		next = pouet->next;
 		lst = lst->next;
-		ft_putstr("ab\n");
+		prev->next = lst;
+		i++;
 	}
-	while (lst->next)
+	new = ft_lstnew(f(lst)->content, f(lst)->content_size);
+	while (i > 0)
 	{
-		pouet = ft_lstnew(f(lst)->content, f(lst)->content_size);
-		next = pouet->next;
-		lst = lst->next;
-		ft_putstr("cd\n");
+		new = ft_lstnew(f(lst)->content, f(lst)->content_size);
+		ft_lstadd(new_list, new);
+		i--;
 	}
-	pouet = ft_lstnew(f(lst)->content, f(lst)->content_size);
-	return (start);
+	return (*new_list);
 }

@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:08:34 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/01 17:37:52 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/05 12:34:28 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		content_copie = (void*)content;
+		content_copie = ft_memcpy(content);
 		size_copie = content_size;
 	}
 	new = (t_list*)malloc(sizeof(*new));
