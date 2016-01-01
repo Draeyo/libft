@@ -76,7 +76,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	ar rc $(NAME) $(OBJ) && ranlib $(NAME)
 
 $(OBJ):
 	gcc -c $(SRC) -Wall -Werror -Wextra
