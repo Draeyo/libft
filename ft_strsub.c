@@ -14,14 +14,12 @@
 
 char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char	*startpnt;
 	char	*copie;
 	int		i;
 
 	i = 0;
 	if (s)
 	{
-		startpnt = (char*)s + start;
 		copie = ft_strnew(len);
 		if (copie == NULL)
 			return (NULL);
